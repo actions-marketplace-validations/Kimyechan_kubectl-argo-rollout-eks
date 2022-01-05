@@ -1,6 +1,9 @@
 name: kubectl-argo-rollout-aws-eks
 description: "This action provides kubectl and kubectl argo rollouts for Github Actions."
 author: 'Maksim Karpychev, Maximilian Dewald'
+branding:
+  color: blue
+  icon: log-in
 runs:
   using: 'docker'
   image: 'Dockerfile'
