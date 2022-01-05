@@ -36,14 +36,14 @@ jobs:
         ECR_REPOSITORY: my-app
         IMAGE_TAG: ${{ github.sha }}
       with:
-        args: set image deployment/$ECR_REPOSITORY $ECR_REPOSITORY=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+        args: argo rollouts set image ROLLOUT_NAME CONTAINER=$ECR_REPOSITORY=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
         
     - name: verify deployment
       uses: kodermax/kubectl-aws-eks@master
       env:
         KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
       with:
-        args: rollout status deployment/my-app
+        args: argo rollouts status ROLLOUT_NAME
 ```
 
 ## Secrets
