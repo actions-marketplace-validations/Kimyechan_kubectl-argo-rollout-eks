@@ -1,6 +1,6 @@
-# Docker and Github Action for Kubernetes CLI
+# Docker and Github Action for Kubernetes CLI with the Argo Rollout Plugin
 
-This action provides `kubectl` for Github Actions.
+This action provides `kubectl` and `kubectl argo rollouts` for Github Actions.
 
 ## Usage
 
