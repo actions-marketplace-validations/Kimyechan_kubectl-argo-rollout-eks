@@ -1,6 +1,6 @@
-# Docker and Github Action for Kubernetes CLI
+# Github Action for Kubernetes CLI with the Argo Rollout Plugin
 
-This action provides `kubectl` for Github Actions.
+This action provides `kubectl` and `kubectl argo rollouts` for Github Actions.
 
 ## Usage
 
@@ -29,21 +29,21 @@ jobs:
       uses: aws-actions/amazon-ecr-login@v1
 
     - name: deploy to cluster
-      uses: kodermax/kubectl-aws-eks@master
+      uses: Maggi64/kubectl-argo-rollout-aws-eks@master
       env:
         KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA_STAGING }}
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
         ECR_REPOSITORY: my-app
         IMAGE_TAG: ${{ github.sha }}
       with:
-        args: set image deployment/$ECR_REPOSITORY $ECR_REPOSITORY=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+        args: argo rollouts set image ROLLOUT_NAME CONTAINER=$ECR_REPOSITORY=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
         
     - name: verify deployment
-      uses: kodermax/kubectl-aws-eks@master
+      uses: Maggi64/kubectl-argo-rollout-aws-eks@master
       env:
         KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
       with:
-        args: rollout status deployment/my-app
+        args: argo rollouts status ROLLOUT_NAME
 ```
 
 ## Secrets
