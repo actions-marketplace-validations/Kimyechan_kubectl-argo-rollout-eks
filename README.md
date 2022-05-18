@@ -68,7 +68,7 @@ env:
 
 ```yaml
       - name: deploy to cluster
-        uses: kodermax/kubectl-aws-eks@master
+        uses: Maggi64/kubectl-argo-rollout-aws-eks@master
         env:
           KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA_STAGING }}
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
@@ -83,7 +83,7 @@ env:
 
 ```yaml
       - name: deploy to cluster
-        uses: kodermax/kubectl-aws-eks@master
+        uses: Maggi64/kubectl-argo-rollout-aws-eks@master
         env:
           KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA_STAGING }}
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
