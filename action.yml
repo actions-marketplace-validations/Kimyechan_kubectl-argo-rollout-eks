@@ -1,6 +1,6 @@
-name: kubectl-argo-rollout-aws-eks
+name: kubectl-argo-rollout-eks
 description: "This action provides kubectl and kubectl argo rollouts for Github Actions."
-author: 'Maksim Karpychev, Maximilian Dewald'
+author: 'yechan'
 branding:
   color: blue
   icon: log-in
